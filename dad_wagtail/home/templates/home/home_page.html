@@ -1,0 +1,62 @@
+{% extends "home/base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block rawcontent %}
+
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+  {% if projects %}
+	<ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    {% for project in projects %}
+    <li data-target="#myCarousel" data-slide-to="{{ forloop.counter }}"></li>
+    {% endfor %}
+	</ol>
+  {% endif %}
+	<div class="carousel-inner" role="listbox">
+
+    <div class="main-title">The Lab</div>
+
+    <div class="item active">
+      {% image page.image fill-1080x800 %}
+			<div class="container">
+        <div class="carousel-caption">
+          {{ page.blurb|richtext }}
+        </div>
+			</div>
+		</div>
+
+    {% for project in projects %}
+    {% with project=project.specific %}
+    <div class="item">
+      {% image project.image fill-1080x900%}
+			<div class="container">
+        <a href="{% pageurl project %}">
+          <div class="carousel-caption">
+            <h1>{{ project.title }}</h1>
+            {{ project.blurb|richtext }}
+          </div>
+        </a>
+			</div>
+		</div>
+    {% endwith %}
+    {% endfor %}
+
+	</div>
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div><!-- /.carousel -->
+
+{% endblock %}

@@ -1,0 +1,1 @@
+web: gunicorn dad_wagtail.wsgi --log-file -
