@@ -94,15 +94,20 @@ body {
   letter-spacing: 2px;
   position: fixed;
   z-index: 1030;
-  bottom: 50vh;
+  bottom: 55vh;
   width: 100vw;
   text-align: center;
   margin-bottom: 10px;
-  font-size: 80px;
+  font-size: 50px;
   /*background-color: rgba(50, 50, 50, 0.4);*/
   border-radius: 4px;
-  padding: 80px 0;
+  padding: 0px 10vw;
   text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+}
+@media(min-width: 992px) {
+  .main-title {
+    font-size: 60px;
+  }
 }
 
 .carousel-caption {
