@@ -10,6 +10,8 @@ from wagtail.wagtaildocs import urls as wagtaildocs_urls
 
 from search import views as search_views
 
+from django.conf.urls.static import static
+
 urlpatterns = [
     url(r'^django-admin/', include(admin.site.urls)),
 
