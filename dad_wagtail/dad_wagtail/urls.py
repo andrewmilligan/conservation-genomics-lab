@@ -13,6 +13,8 @@ from search import views as search_views
 from django.conf.urls.static import static
 
 urlpatterns = [
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
+
     url(r'^django-admin/', include(admin.site.urls)),
 
     url(r'^admin/', include(wagtailadmin_urls)),
@@ -29,8 +31,6 @@ urlpatterns = [
     # of your site, rather than the site root:
     #    url(r'^pages/', include(wagtail_urls)),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 if settings.DEBUG:
