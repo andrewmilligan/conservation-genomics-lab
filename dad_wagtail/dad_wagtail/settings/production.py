@@ -13,7 +13,7 @@ except ImportError:
 
 
 SECRET_KEY = os.environ['SECRET_KEY']
-DATABASES = {'default': dj_database_url.config()}
+#DATABASES = {'default': dj_database_url.config()}
 
 ALLOWED_HOSTS = ['*']
 
