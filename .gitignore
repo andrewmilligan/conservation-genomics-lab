@@ -1,6 +1,15 @@
+# Ignore all the binary build files
 **.pyc
+
+# Ignore the database
+cgri.sqlite3
+
+# Ignore the contents of static and media so that we don't make media public
+# and we don't redundantly version control collected static files
 static/**
 media/**
 
+# Don't ignore the .gitignore files in media/ and static/ so that the
+# directories actually exist in the repo
 !static/.gitignore
 !media/.gitignore
