@@ -18,8 +18,6 @@ import os
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-VIRTUAL_ENV_DIR = os.path.join(os.path.dirname(BASE_DIR), 'env')
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -27,6 +25,7 @@ VIRTUAL_ENV_DIR = os.path.join(os.path.dirname(BASE_DIR), 'env')
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
     'home',
     'search',
     'people',
@@ -79,7 +78,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
             os.path.join(PROJECT_DIR, 'templates'),
         ],
         'APP_DIRS': True,
@@ -131,7 +129,6 @@ STATICFILES_FINDERS = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'base_static'),
     os.path.join(PROJECT_DIR, 'static'),
 ]
 

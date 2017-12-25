@@ -11,7 +11,7 @@ from wagtail.wagtailsearch import index
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 
-from utils.models import LabPage, HighlightPage
+from core.models import LabPage, HighlightPage
 
 
 class CaptionedImageBlock(blocks.StructBlock):

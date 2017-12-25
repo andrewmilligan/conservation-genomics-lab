@@ -7,7 +7,7 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
-from utils.models import LabPage, SplashPage, HighlightPage
+from core.models import LabPage, SplashPage, HighlightPage
 
 class HomePage(SplashPage):
   blurb = RichTextField(blank=True)

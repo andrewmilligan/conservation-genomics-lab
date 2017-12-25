@@ -8,7 +8,7 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
-from utils.models import LabPage
+from core.models import LabPage
 
 
 class PeopleIndexPage(LabPage):
