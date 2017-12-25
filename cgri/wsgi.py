@@ -30,10 +30,10 @@ if PROJECT_DIR not in sys.path:
 from django.conf import settings
 
 # Add the site-packages of the chosen virtualenv to work with
-site.addsitedir(os.path.join(settings.VIRTUAL_ENV_DIR, 'lib', 'python2.7',
-  'site-packages'))
+#site.addsitedir(os.path.join(settings.VIRTUAL_ENV_DIR, 'lib', 'python2.7',
+#  'site-packages'))
 
-activate_env = os.path.join(settings.VIRTUAL_ENV_DIR, 'bin', 'activate_this.py')
-execfile(activate_env, dict(__file__=activate_env))
+#activate_env = os.path.join(settings.VIRTUAL_ENV_DIR, 'bin', 'activate_this.py')
+#execfile(activate_env, dict(__file__=activate_env))
 
 application = get_wsgi_application()
