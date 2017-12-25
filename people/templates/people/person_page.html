@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'base/article_detail.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'people/person_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="article-container">
+  <h1 class="page-header">{{ page.title }}</h1>
+  <div class="person-image">
+    {% image page.image original as cap_image %}
+    <img src="{{ cap_image.url }}" width="100%">
+  </div>
+  <div class="article-blurb person-blurb">
+    <div class="person-info">
+      <span class="person-position">{{ page.position }}</span>
+      <span class="person-email">
+        <a href="mailto:{{ page.email }}">{{ page.email }}</a>
+      </span>
+    </div>
+    {{ page.blurb|richtext }}
+  </div>
+
+  <hr class="bio-sep">
+
+  <div id="bio-title">Bio</div>
+  <div class="article-body">
+    {{ page.bio|richtext }}
+  </div>
+</div>
+
+{% endblock %}

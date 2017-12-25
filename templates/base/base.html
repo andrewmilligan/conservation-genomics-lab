@@ -1,0 +1,77 @@
+{% load wagtailcore_tags %}
+{% load static wagtailuserbar %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{{ page.title }}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cgri.css' %}">
+    <link rel="stylesheet" href="{% static 'base/style.css' %}">
+    <link rel="stylesheet" href="{% static 'base/navbar_transparent.css' %}">
+
+    {% block stylesheets %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    {% wagtailuserbar %}
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-transparent dark navbar-simple navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">CGL</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+          <ul class="nav navbar-nav navbar-right">
+            {% for top_page in top_level_pages %}
+              <li>
+                <a href="{% pageurl top_page %}">
+                  {{ top_page.title }}
+                </a>
+              </li>
+            {% endfor %}
+
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    {% block rawcontent %}
+    <div class="container contentblock-container">
+      {% block content %}{% endblock %}
+    </div>
+    {% endblock %}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    {# Global javascript #}
+    <script type="text/javascript" src="{% static 'js/cgri.js' %}"></script>
+
+    {% block scripts %}
+    {% endblock %}
+
+  </body>
+
+</html>
