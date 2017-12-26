@@ -2,8 +2,6 @@ from __future__ import absolute_import, unicode_literals
 
 from .base import *
 
-import dj_database_url
-
 DEBUG = False
 
 try:
@@ -13,7 +11,6 @@ except ImportError:
 
 
 SECRET_KEY = os.environ['SECRET_KEY']
-#DATABASES = {'default': dj_database_url.config()}
 
 ALLOWED_HOSTS = ['*']
 
