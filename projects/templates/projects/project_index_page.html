@@ -1,12 +1,12 @@
-{% extends "base/base.html" %}
+{% extends "core/base.html" %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 {% load static %}
 
 {% block stylesheets %}
 {{ block.super }}
-<link rel="stylesheet" type="text/css" href="{% static 'base/article_detail.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'base/article_index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'core/article_detail.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'core/article_index.css' %}">
 {% endblock %}
 
 {% block content %}
