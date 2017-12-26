@@ -7,7 +7,6 @@ class LabPage(Page):
     splashpage = context['request'].site.root_page
     context['homepage'] = splashpage.specific
     context['top_level_pages'] = splashpage.get_children()
-    print(context)
     return context
 
   class Meta:
