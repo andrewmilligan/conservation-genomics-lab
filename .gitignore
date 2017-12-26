@@ -2,7 +2,7 @@
 **.pyc
 
 # Ignore the database
-cgri.sqlite3
+**.sqlite3
 
 # Ignore the contents of static and media so that we don't make media public
 # and we don't redundantly version control collected static files
