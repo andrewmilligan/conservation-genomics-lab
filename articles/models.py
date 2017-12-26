@@ -8,8 +8,10 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsearch import index
 
+from wagtail.wagtailcore import blocks
+
 from core.models import LabPage, HighlightPage
-from blocks import CaptionedImageBlock
+from articles.blocks import CaptionedImageBlock
 
 
 class ArticleIndexPage(LabPage):
@@ -50,9 +52,10 @@ class PersonPage(LabPage):
 
   parent_page_types = ['articles.ArticleIndexPage']
 
+  pagebox_info_template_fragment = 'articles/fragments/person_pagebox_info.html'
+
 
 class ProjectPage(HighlightPage):
-  name = models.CharField(max_length=250)
   blurb = RichTextField(blank=True)
   image = models.ForeignKey(
       'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',
@@ -67,14 +70,16 @@ class ProjectPage(HighlightPage):
       ])
 
   search_fields = Page.search_fields + [
-      index.SearchField('name'),
       index.SearchField('blurb'),
       index.SearchField('body'),
       ]
 
   content_panels = Page.content_panels + [
-      FieldPanel('name'),
       FieldPanel('blurb', classname="full"),
       ImageChooserPanel('image'),
       StreamFieldPanel('body'),
       ]
+
+  parent_page_types = ['articles.ArticleIndexPage']
+
+  pagebox_info_template_fragment = 'articles/fragments/project_pagebox_info.html'
