@@ -1,9 +1,16 @@
-{% extends "home/base.html" %}
+{% extends "core/base.html" %}
 
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load static %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'home/home_page.css' %}">
+<link rel="stylesheet" href="{% static 'home/carousel.css' %}">
+{% endblock %}
+
+{% block navbar-class %}{% endblock %}
 
 {% block rawcontent %}
 
