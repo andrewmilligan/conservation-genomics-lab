@@ -32,7 +32,7 @@
           </div>
 
           <div class="pagebox-info">
-            {{ child.type }}
+            {% include child.pagebox_info_template_fragment with page=child %}
           </div>
         </a>
 
