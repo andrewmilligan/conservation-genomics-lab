@@ -12,5 +12,5 @@ class CaptionedImageBlock(blocks.StructBlock):
   credit = blocks.CharBlock(null=True, required=False)
 
   class Meta:
-    template = 'projects/blocks/captioned_image_block.html'
+    template = 'articles/blocks/captioned_image_block.html'
     icon = 'image'
