@@ -4,17 +4,15 @@ class LabPage(Page):
   def get_context(self, request):
     # Update context to include project pages to highlight
     context = super(LabPage, self).get_context(request)
-    splashpage = Page.objects.type(SplashPage).first()
+    splashpage = context['request'].site.root_page
+    context['homepage'] = splashpage.specific
     context['top_level_pages'] = splashpage.get_children()
+    print(context)
     return context
 
   class Meta:
     abstract = True
 
-
-class SplashPage(LabPage):
-  class Meta:
-    abstract = True
 
 class HighlightPage(LabPage):
   class Meta:
