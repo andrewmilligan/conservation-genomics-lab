@@ -20,24 +20,7 @@
 
   {% for child in page.get_children %}
     {% with child=child.specific %}
-      <div class="pagebox">
-
-        <a href="{% pageurl child %}">
-
-          <div class="pagebox-image">
-            <div class="imagewrap">
-              {% image child.image original as child_image %}
-              <img src="{{ child_image.url }}" class="img" width="100%">
-            </div>
-          </div>
-
-          <div class="pagebox-info">
-            {% include child.pagebox_info_template_fragment with page=child %}
-          </div>
-        </a>
-
-      </div>
-
+    {% include child.index_entry_template with page=child %}
     {% endwith %}
   {% endfor %}
 </div>
