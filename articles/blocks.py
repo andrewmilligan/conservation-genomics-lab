@@ -20,3 +20,17 @@ class CaptionedImageBlock(blocks.StructBlock):
   class Meta:
     template = 'articles/blocks/captioned_image_block.html'
     icon = 'image'
+
+
+## AuthorBlock
+#
+#  This is a block (to be used in stream fields) that defines an author for a
+#  publication.
+#
+class AuthorBlock(blocks.StructBlock):
+  name = blocks.CharBlock()
+  institution = blocks.CharBlock(null=True, required=False)
+
+  class Meta:
+    #template = 'articles/blocks/captioned_image_block.html'
+    #icon = 'image'

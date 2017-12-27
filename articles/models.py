@@ -11,7 +11,7 @@ from wagtail.wagtailsearch import index
 from wagtail.wagtailcore import blocks
 
 from core.models import LabPage, HighlightPage
-from articles.blocks import CaptionedImageBlock
+from articles.blocks import CaptionedImageBlock, AuthorBlock
 
 
 ## ArticleIndexPage
@@ -110,5 +110,31 @@ class ProjectPage(ArticlePage, HighlightPage):
       ImageChooserPanel('image'),
       StreamFieldPanel('body'),
       ]
+
+  index_entry_template = 'articles/fragments/project_index_entry.html'
+
+
+## PublicationPage
+#
+#  Article page the holds a description of a publication. Publications have a
+#  lot of specific, structured information.
+#
+#  TODO: upload PDF of publication
+#  TODO: export citation
+#
+class ProjectPage(ArticlePage, HighlightPage):
+  #author = ListField('author', AuthorBlock())
+  abstract = RichTextField(blank=True)
+
+  search_fields = Page.search_fields + [
+      index.SearchField('author'),
+      index.SearchField('abstract'),
+      ]
+
+  #content_panels = Page.content_panels + [
+  #    FieldPanel('blurb', classname="full"),
+  #    ImageChooserPanel('image'),
+  #    StreamFieldPanel('body'),
+  #    ]
 
   index_entry_template = 'articles/fragments/project_index_entry.html'
