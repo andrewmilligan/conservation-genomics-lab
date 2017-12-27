@@ -9,6 +9,10 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from core.models import LabPage, HighlightPage
 
+## HomePage
+#
+#  This models the main splash page for the website.
+#
 class HomePage(LabPage):
   brief_title = models.CharField(max_length=250, blank=True)
   blurb = RichTextField(blank=True)
