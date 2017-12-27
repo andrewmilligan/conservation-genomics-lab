@@ -4,6 +4,12 @@ from wagtail.wagtailcore import blocks
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 
+## CaptionedImageBlock
+#
+#  This is a block (to be used in stream fields) that defines a captioned
+#  image. In addition to an actual image, this image block may have title
+#  information, caption information, credit information, etc.
+#
 class CaptionedImageBlock(blocks.StructBlock):
   image = ImageChooserBlock()
   title = blocks.CharBlock(null=True, required=False)
