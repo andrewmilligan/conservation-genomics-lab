@@ -32,5 +32,5 @@ class AuthorBlock(blocks.StructBlock):
   institution = blocks.CharBlock(null=True, required=False)
 
   class Meta:
-    #template = 'articles/blocks/captioned_image_block.html'
-    #icon = 'image'
+    label = "Author"
+    icon = 'user'

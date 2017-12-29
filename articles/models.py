@@ -6,6 +6,7 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtaildocs.edit_handlers import DocumentChooserPanel
 from wagtail.wagtailsearch import index
 
 from wagtail.wagtailcore import blocks
@@ -119,22 +120,30 @@ class ProjectPage(ArticlePage, HighlightPage):
 #  Article page the holds a description of a publication. Publications have a
 #  lot of specific, structured information.
 #
-#  TODO: upload PDF of publication
 #  TODO: export citation
 #
-class ProjectPage(ArticlePage, HighlightPage):
-  #author = ListField('author', AuthorBlock())
-  abstract = RichTextField(blank=True)
+class PublicationPage(ArticlePage):
+  author_list = StreamField([('author', AuthorBlock())],
+      blank=True)
+  year = models.CharField(blank=True, null=True, max_length=4)
+  abstract = RichTextField(blank=True, null=True)
+  pdf = models.ForeignKey(
+      'wagtaildocs.Document', null=True, blank=True,
+      on_delete=models.SET_NULL, related_name='+'
+      )
+  link = models.URLField(null=True, blank=True)
 
   search_fields = Page.search_fields + [
-      index.SearchField('author'),
+      index.SearchField('author_list'),
       index.SearchField('abstract'),
       ]
 
-  #content_panels = Page.content_panels + [
-  #    FieldPanel('blurb', classname="full"),
-  #    ImageChooserPanel('image'),
-  #    StreamFieldPanel('body'),
-  #    ]
+  content_panels = Page.content_panels + [
+      StreamFieldPanel('author_list'),
+      FieldPanel('year'),
+      FieldPanel('abstract', classname="full"),
+      DocumentChooserPanel('pdf'),
+      FieldPanel('link'),
+      ]
 
-  index_entry_template = 'articles/fragments/project_index_entry.html'
+  index_entry_template = 'articles/fragments/publication_index_entry.html'
