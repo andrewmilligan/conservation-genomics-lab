@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/cgri.css' %}">
     <link rel="stylesheet" href="{% static 'core/style.css' %}">
     <link rel="stylesheet" href="{% static 'core/navbar_transparent.css' %}">
+    <link rel="stylesheet" href="{% static 'core/footer.css' %}">
 
     {% block stylesheets %}
     {% endblock %}
@@ -35,7 +36,13 @@
     <nav class="navbar navbar-transparent {% block navbar-class %}dark{% endblock %} navbar-simple navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">{{ homepage.brief_title }}</a>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% pageurl homepage %}"">{{ homepage.brief_title }}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
@@ -58,6 +65,42 @@
     <div class="container contentblock-container">
       {% block content %}{% endblock %}
     </div>
+    {% endblock %}
+
+    {% block footer %}
+    <footer class="footer">
+      {% block footercontent %}
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="footer-title">
+              {{ homepage.title }}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <span class="section-link">
+              <a href="{% pageurl homepage %}">Home</a>
+            </span>
+            {% for top_page in top_level_pages %}
+              <span class="section-link-sep"></span>
+              <span class="section-link">
+                <a href="{% pageurl top_page %}">
+                  {{ top_page.title }}
+                </a>
+              </span>
+            {% endfor %}
+          </div>
+          <div class="col-sm-12">
+            <div class="footer-credit">
+              Created for <a href="{% pageurl homepage %}">CGRI</a> by Andrew Milligan
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock %}
+    </footer>
     {% endblock %}
 
     <!-- Bootstrap core JavaScript
