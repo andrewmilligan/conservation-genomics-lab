@@ -17,8 +17,3 @@ class LabPage(Page):
 
   class Meta:
     abstract = True
-
-
-class HighlightPage(LabPage):
-  class Meta:
-    abstract = True

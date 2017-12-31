@@ -11,7 +11,7 @@ from wagtail.wagtailsearch import index
 
 from wagtail.wagtailcore import blocks
 
-from core.models import LabPage, HighlightPage
+from core.models import LabPage
 from articles.blocks import CaptionedImageBlock, AuthorBlock
 
 
@@ -87,7 +87,7 @@ class PersonPage(ArticlePage):
 #  incredibly varied and likely have associated images, so the body of this
 #  class allows a large amount of flexibility in content.
 #
-class ProjectPage(ArticlePage, HighlightPage):
+class ProjectPage(ArticlePage):
   blurb = RichTextField(blank=True)
   image = models.ForeignKey(
       'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',

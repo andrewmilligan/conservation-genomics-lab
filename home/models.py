@@ -9,7 +9,7 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 from modelcluster.fields import ParentalKey
 
-from core.models import LabPage, HighlightPage
+from core.models import LabPage
 from articles.models import ProjectPage, PublicationPage, PersonPage
 
 ## HomePage
