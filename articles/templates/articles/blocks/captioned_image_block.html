@@ -14,7 +14,11 @@
   {% endif %}
 
   {% image value.image original as main_image %}
-  <img src="{{ main_image.url }}" width="100%">
+  {% if value.max_width %}
+    <img src="{{ main_image.url }}" width="100%" style="max-width: {{ value.max_width }}px;">
+  {% else %}
+    <img src="{{ main_image.url }}" width="100%">
+  {% endif %}
 
   {% if value.caption %}
   <div class="caption">

@@ -16,6 +16,8 @@ class CaptionedImageBlock(blocks.StructBlock):
   subtitle = blocks.CharBlock(null=True, required=False)
   caption = blocks.RichTextBlock(null=True, required=False)
   credit = blocks.CharBlock(null=True, required=False)
+  max_width = blocks.IntegerBlock(null=True, required=False,
+      min_value=0, help_text="maximum width of image in pixels")
 
   class Meta:
     template = 'articles/blocks/captioned_image_block.html'
@@ -33,4 +35,5 @@ class AuthorBlock(blocks.StructBlock):
 
   class Meta:
     label = "Author"
+    template = 'articles/blocks/author_block.html'
     icon = 'user'

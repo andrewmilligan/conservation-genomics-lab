@@ -125,8 +125,9 @@ class ProjectPage(ArticlePage, HighlightPage):
 class PublicationPage(ArticlePage):
   author_list = StreamField([('author', AuthorBlock())],
       blank=True)
-  year = models.CharField(blank=True, null=True, max_length=4)
+  date = models.DateField(blank=True, null=True)
   abstract = RichTextField(blank=True, null=True)
+  journal = models.CharField(blank=True, null=True, max_length=250)
   pdf = models.ForeignKey(
       'wagtaildocs.Document', null=True, blank=True,
       on_delete=models.SET_NULL, related_name='+'
@@ -136,14 +137,22 @@ class PublicationPage(ArticlePage):
   search_fields = Page.search_fields + [
       index.SearchField('author_list'),
       index.SearchField('abstract'),
+      index.SearchField('journal'),
       ]
 
   content_panels = Page.content_panels + [
       StreamFieldPanel('author_list'),
-      FieldPanel('year'),
+      FieldPanel('date'),
       FieldPanel('abstract', classname="full"),
+      FieldPanel('journal'),
       DocumentChooserPanel('pdf'),
       FieldPanel('link'),
       ]
 
   index_entry_template = 'articles/fragments/publication_index_entry.html'
+
+  citation_template = 'articles/fragments/publication_citation.html'
+
+  def print_author_list(self):
+    names = [author.value['name'] for author in self.author_list]
+    return ', '.join(names)
