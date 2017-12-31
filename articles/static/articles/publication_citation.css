@@ -1,0 +1,51 @@
+.citation {
+  font-size: 20px;
+  color: #777;
+  font-weight: 200;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.citation-title {
+  color: #333;
+  font-weight: bold;
+}
+
+
+/** For author block of publication page **/
+.author-block > .author-name {
+}
+
+.author-block > .author-institution {
+  color: #777;
+  font-variant: small-caps;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.author-block > .author-institution:before {
+  margin-left: 6px;
+  margin-right: 10px;
+}
+
+.publication-link a {
+  display: inline;
+  float: right;
+  margin: 5px;
+  color: #777;
+  font-size: 18px;
+  transition-duration: 0.25s;
+}
+
+.publication-link a:hover {
+  color: #333;
+  transition-duration: 0.25s;
+}
+
+a > .citation > .citation-title {
+  transition-duration: 0.25s;
+}
+a:hover > .citation > .citation-title {
+  color: #94adb5;
+  transition-duration: 0.25s;
+}
