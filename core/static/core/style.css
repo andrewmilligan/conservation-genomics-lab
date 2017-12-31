@@ -115,6 +115,13 @@ body {
   transition-duration: 0.25s;
 }
 
+a {
+  transition-duration: 0.25s;
+}
+a:hover {
+  transition-duration: 0.25s;
+}
+
 .text a {
   transition-duration: 0.25s;
   color: inherit;
