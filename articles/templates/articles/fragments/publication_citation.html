@@ -1,0 +1,14 @@
+{% load wagtailcore_tags %}
+
+<div class="citation">
+  {% if pub.author_list %}
+    <span class="citation-authors">{{ pub.print_author_list }}.</span>
+  {% endif %}
+  {% if pub.date %}
+    <span class="citation-year">({{ pub.date.year }})</span>
+  {% endif %}
+  <span class="citation-title">{{ pub.title }}.</span>
+  {% if pub.journal %}
+    <span class="citation-journal">{{ pub.journal }}</span>
+  {% endif %}
+</div>

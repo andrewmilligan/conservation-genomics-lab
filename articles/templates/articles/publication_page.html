@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'core/article_detail.css' %}">
+<link rel="stylesheet" href="{% static 'articles/publication_citation.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="article-container">
+  <h1 class="page-header">{{ page.title }}</h1>
+
+  {% if page.link %}
+    <div class="publication-link">
+      <a href="{{ page.link }}" target="_blank">
+        <i class="fa fa-link" aria-hidden="true"></i>
+      </a>
+    </div>
+  {% endif %}
+  {% if page.pdf %}
+    <div class="publication-link">
+      <a href="{{ page.pdf.url }}" target="blank_">
+        <i class="fa fa-download" aria-hidden="true"></i>
+      </a>
+    </div>
+  {% endif %}
+
+  <div class="article-authors">
+    {% include_block page.author_list %}
+  </div>
+
+  {% include page.citation_template with pub=page %}
+
+  <div class="article-body">
+    {{ page.abstract|richtext }}
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+<div class="pagebox">
+
+  <div class="pagebox-info noimage">
+    <a href="{% pageurl page %}" class="no-change">
+      {% include page.citation_template with pub=page %}
+    </a>
+    {% if page.link %}
+      <div class="pagebox-link">
+        <a href="{{ page.link }}" target="blank_">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+      </div>
+    {% endif %}
+    {% if page.pdf %}
+      <div class="pagebox-link">
+        <a href="{{ page.pdf.url }}" target="blank_">
+          <i class="fa fa-download" aria-hidden="true"></i>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+
+</div>
