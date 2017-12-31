@@ -15,13 +15,9 @@
   height: 100vh;
   background-color: #777;
 }
-.carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  object-fit: cover;
-  height: 100%;
+.carousel-inner > .item {
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 
