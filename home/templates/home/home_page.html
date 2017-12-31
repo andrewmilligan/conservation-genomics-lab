@@ -8,6 +8,7 @@
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'home/home_page.css' %}">
 <link rel="stylesheet" href="{% static 'home/carousel.css' %}">
+<link rel="stylesheet" href="{% static 'articles/publication_citation.css' %}">
 {% endblock %}
 
 {% block navbar-class %}{% endblock %}
@@ -30,8 +31,8 @@
 
     <div class="main-title">{{ page.title }}</div>
 
-    <div class="item active">
-      {% image page.image fill-1080x800 %}
+    {% image page.image fill-1080x800  as bg_img%}
+    <div class="item active" style="background-image: url({{ bg_img.url }});">
 			<div class="container">
         <div class="carousel-caption">
           {{ page.blurb|richtext }}
@@ -41,8 +42,8 @@
 
     {% for project in projects %}
     {% with project=project.specific %}
-    <div class="item">
-      {% image project.image fill-1080x900%}
+    {% image project.image fill-1080x900 as bg_img %}
+    <div class="item" style="background-image: url({{ bg_img.url }});">
 			<div class="container">
         <a href="{% pageurl project %}">
           <div class="carousel-caption">
@@ -65,5 +66,78 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div><!-- /.carousel -->
+
+
+<div class="container marketing index-row-container-odd">
+  <div class="row featurette index-row funders">
+    {% for funder in page.funders.all|slice:":3" %}
+    <div class="col-sm-4">
+      <div class="primary-funder-logo">
+        <a href="{{ funder.link }}" target="_blank">
+          {% image funder.logo width-150 %}
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <hr class="featurette-divider">
+</div>
+
+
+<div class="container marketing index-row-container-odd">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="index-row-title index-row-title-odd">Recent Publications</div>
+    </div>
+  </div>
+  {% for pub in publications|slice:":5" %}
+  {% with pub=pub.specific %}
+  <div class="row">
+    <div class="col-sm-12">
+      <a class="no-change" href="{% pageurl pub %}">
+        {% include pub.citation_template with pub=pub %}
+      </a>
+    </div>
+  </div>
+  {% endwith %}
+  {% endfor %}
+</div>
+
+{% if page.secondary_image %}
+  {% image page.secondary_image fill-1080x900 as bg_img %}
+  <div class="secondary-splash" style="background-image: url({{ bg_img.url }});">
+  </div>
+{% endif %}
+
+<div class="container marketing index-row-container-odd">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="index-row-title index-row-title-odd">Current Projects</div>
+    </div>
+  </div>
+
+  {% for project in projects %}
+  {% with project=project.specific %}
+  <a href="{% pageurl project %}">
+  <div class="row featurette index-row">
+    <div class="col-md-7 index">
+      <h2 class="featurette-heading">{{ project.title }}</h2>
+      <div class="featurette-teaser">
+        {{ project.blurb|richtext }}
+      </div>
+    </div>
+    <div class="col-md-5">
+      {% image project.image fill-1080x900 as project_img %}
+      <img class="featurette-image img-responsive center-block"
+           src="{{ project_img.url }}" alt="featurette poster">
+    </div>
+  </div>
+  </a>
+  <hr class="featurette-divider">
+  {% endwith %}
+  {% endfor %}
+
+</div>
+
 
 {% endblock %}
