@@ -1,0 +1,92 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+.contentblock-container {
+  min-height: 100vh;
+}
+
+.footer {
+  color: #bbb;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  background-color: #333;
+  padding: 30px 10px;
+}
+
+.footer a {
+  color: #fff;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+.footer a:hover {
+  color: #94adb5;
+  text-decoration: none;
+}
+
+.footer-title {
+  font-size: 14px;
+  color: #bbb;
+  font-variant: small-caps;
+  font-weight: 200;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+@media(min-width: 768px) {
+  .footer-title {
+    font-size: 18px;
+  }
+}
+
+.section-link {
+  font-size: 12px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: block;
+}
+@media(min-width: 768px) {
+  .section-link {
+    font-size: 16px;
+    display: inline;
+  }
+}
+
+.section-link-sep {
+  margin-left: 5px;
+  margin-right: 5px;
+  float: right;
+}
+@media(min-width: 768px) {
+  .section-link-sep {
+    margin-left: 20px;
+    margin-right: 20px;
+    float: none;
+  }
+}
+
+.section-link-sep:after {
+  content: '';
+}
+@media(min-width: 768px) {
+  .section-link-sep:after {
+    content: '\2022';
+  }
+}
+
+.footer-credit {
+  margin-top: 25px;
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+@media(min-width: 768px) {
+  .footer-credit {
+    font-size: 14px;
+  }
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+
+
