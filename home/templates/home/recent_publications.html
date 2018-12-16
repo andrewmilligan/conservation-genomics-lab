@@ -1,5 +1,6 @@
 {% load wagtailcore_tags %}
 
+{% if publications %}
 <div class="container marketing index-row-container-odd">
   <div class="row">
     <div class="col-md-12">
@@ -19,3 +20,4 @@
   {% endwith %}
   {% endfor %}
 </div>
+{% endif %}

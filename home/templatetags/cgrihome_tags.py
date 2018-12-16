@@ -6,13 +6,17 @@ from articles.models import ProjectPage, PublicationPage
 register = template.Library()
 
 
-@register.inclusion_tag("home/carousel.html")
-def cgri_carousel():
+@register.inclusion_tag("home/carousel.html", takes_context=True)
+def cgri_carousel(context):
     '''
     This template tag is used to build the home page carousel.
     '''
+    page = context['page']
     projects = ProjectPage.objects.live()
-    return {'projects': projects}
+    return {
+            'page': page,
+            'projects': projects,
+            }
 
 
 @register.inclusion_tag("home/funders.html", takes_context=True)
@@ -25,6 +29,7 @@ def cgri_funders(context):
     primary_funders = funders[:3]
     other_funders = funders[3:]
     return {
+            'funders': funders,
             'primary_funders': primary_funders,
             'other_funders': other_funders,
             }
