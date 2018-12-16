@@ -9,14 +9,13 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 
 from modelcluster.fields import ParentalKey
 
-from core.models import LabPage
 from articles.models import ProjectPage, PublicationPage, PersonPage
 
 ## HomePage
 #
 #  This models the main splash page for the website.
 #
-class HomePage(LabPage):
+class HomePage(Page):
   brief_title = models.CharField(max_length=250, blank=True)
   blurb = RichTextField(blank=True)
   image = models.ForeignKey(
@@ -35,17 +34,6 @@ class HomePage(LabPage):
       ImageChooserPanel('secondary_image'),
       InlinePanel('funders', label="Funders"),
       ]
-
-  def get_context(self, request):
-    # Update context to include project pages to highlight
-    context = super(HomePage, self).get_context(request)
-    projects = Page.objects.type(ProjectPage).live()
-    people = Page.objects.type(ProjectPage).live()
-    publications = Page.objects.type(PublicationPage).live()
-    context['projects'] = projects
-    context['people'] = people
-    context['publications'] = publications
-    return context
 
 
 ## HomePageFunder
