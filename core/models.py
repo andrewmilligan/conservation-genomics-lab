@@ -1,4 +1,4 @@
-from wagtail.wagtailcore.models import Page
+from wagtail.core.models import Page
 
 
 ## LabPage
@@ -10,9 +10,9 @@ from wagtail.wagtailcore.models import Page
 class LabPage(Page):
   def get_context(self, request):
     context = super(LabPage, self).get_context(request)
-    splashpage = context['request'].site.root_page
-    context['homepage'] = splashpage.specific
-    context['top_level_pages'] = splashpage.get_children()
+    #splashpage = context['request'].site.root_page
+    #context['homepage'] = splashpage.specific
+    #context['top_level_pages'] = splashpage.get_children()
     return context
 
   class Meta:

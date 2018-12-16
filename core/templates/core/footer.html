@@ -1,0 +1,35 @@
+{% load wagtailcore_tags %}
+
+<footer class="footer">
+  {% block footercontent %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="footer-title">
+          {{ homepage.title }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="section-link">
+          <a href="{% pageurl homepage %}">Home</a>
+        </span>
+        {% for top_page in top_level_pages %}
+          <span class="section-link-sep"></span>
+          <span class="section-link">
+            <a href="{% pageurl top_page %}">
+              {{ top_page.title }}
+            </a>
+          </span>
+        {% endfor %}
+      </div>
+      <div class="col-sm-12">
+        <div class="footer-credit">
+          Created for <a href="{% pageurl homepage %}">CGRI</a> by Andrew Milligan
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</footer>
