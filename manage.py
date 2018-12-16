@@ -6,8 +6,8 @@ import sys
 
 if __name__ == "__main__":
 
-  #settings_module = "cgri.settings.dev"
-  settings_module = "cgri.settings.production"
+  settings_module = "cgri.settings.dev"
+  #settings_module = "cgri.settings.production"
 
   os.environ.setdefault("DJANGO_SETTINGS_MODULE",
       settings_module)

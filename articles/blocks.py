@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 
-from wagtail.wagtailcore import blocks
-from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.core import blocks
+from wagtail.images.blocks import ImageChooserBlock
 
 
 ## CaptionedImageBlock
