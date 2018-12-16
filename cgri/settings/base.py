@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'bakery',
+    'wagtailbakery',
+
     'core',
     'home',
     'search',
@@ -146,3 +149,16 @@ WAGTAIL_SITE_NAME = "cgri"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+
+# Setup for wagtail-bakery
+BAKERY_MULTISITE = False                     # False by default
+BUILD_DIR = os.path.join(BASE_DIR, "build")  # Output directory
+
+BAKERY_VIEWS = (
+        # Bake only published pages - for production
+        'wagtailbakery.views.AllPublishedPagesView',
+
+        # Bake all pages - for staging/acceptance
+        #'wagtailbakery.views.AllPagesView',
+        )
