@@ -5,7 +5,7 @@ register = template.Library()
 
 
 @register.inclusion_tag("core/navbar.html", takes_context=True)
-def cgri_navbar(context, fixed=True, dark=False):
+def cgri_navbar(context, fixed=True, light=True):
     '''
     This template tag is used to produce the navigation bar at the top of all
     of the CGRI lab pages. It automatically pulls in the home page and the
@@ -18,12 +18,12 @@ def cgri_navbar(context, fixed=True, dark=False):
             'homepage': splashpage,
             'top_level_pages': top_level_pages,
             'fixed': fixed,
-            'dark': dark,
+            'light': light,
             }
 
 
 @register.inclusion_tag("core/footer.html", takes_context=True)
-def cgri_footer(context, fixed=True, dark=False):
+def cgri_footer(context):
     '''
     This template tag is used to create the CGRI navigation footer that appears
     on all of the lab pages. It uses a similar logic to the navbar to pull in

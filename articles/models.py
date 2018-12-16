@@ -11,7 +11,6 @@ from wagtail.search import index
 
 from wagtail.core import blocks
 
-from core.models import LabPage
 from articles.blocks import CaptionedImageBlock, AuthorBlock
 
 
@@ -22,7 +21,7 @@ from articles.blocks import CaptionedImageBlock, AuthorBlock
 #  main job is to list all of its children, so it has minimal information of
 #  its own.
 #
-class ArticleIndexPage(LabPage):
+class ArticleIndexPage(Page):
   intro = RichTextField(blank=True)
 
   content_panels = Page.content_panels + [
@@ -39,7 +38,7 @@ class ArticleIndexPage(LabPage):
 #  all articles have an `index_entry_template` attribute which is used by the
 #  index page to render class-specific index entries.
 #
-class ArticlePage(LabPage):
+class ArticlePage(Page):
   parent_page_types = ['articles.ArticleIndexPage']
   index_entry_template = 'articles/fragments/default_index_entry.html'
 

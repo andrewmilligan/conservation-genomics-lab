@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load cgricore_tags %}
 {% load static %}
 
 {% block stylesheets %}
@@ -8,6 +9,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'core/article_detail.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'core/article_index.css' %}">
 <link rel="stylesheet" href="{% static 'articles/publication_citation.css' %}">
+{% endblock %}
+
+{% block navbar %}
+{% cgri_navbar %}
 {% endblock %}
 
 {% block content %}
