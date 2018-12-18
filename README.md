@@ -22,6 +22,14 @@ manage.py build` from the root of the repository to bake the site out to static
 HTML. That makes it much easier and lighter to host, improves scalability, and
 helps with security too.
 
+The build management command is also wired into the `page_published` and
+`page_unpublished` Wagtail signals so that when a page is published or
+unpublished the site will automatically re-bake. This will make it easier for
+the static site to mirror the *published* portion of the dynamically served
+site stored in the database. Note that as of now, the site is just re-baked,
+not re-deployed; that will come once the site is live and it actually has
+somewhere to deploy.
+
 
 [1]: https://wagtail.io/
 [2]: https://github.com/wagtail/wagtail-bakery
