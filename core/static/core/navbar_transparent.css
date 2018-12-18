@@ -20,7 +20,7 @@
   font-variant: small-caps;
   font-size: 18px;
   transition-duration: 0.25s;
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: 2px;
 }
 .navbar-transparent .navbar-brand:hover {
@@ -30,7 +30,7 @@
 
 .navbar-transparent .navbar-nav {
   font-variant: small-caps;
-  font-weight: 200;
+  font-weight: 400;
   letter-spacing: 2px;
 }
 
