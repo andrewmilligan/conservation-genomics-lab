@@ -9,6 +9,9 @@
 static/**
 media/**
 
+# Ignore the static build directory for baking out static HTML
+build/**
+
 # Don't ignore the .gitignore files in media/ and static/ so that the
 # directories actually exist in the repo
 !static/.gitignore
