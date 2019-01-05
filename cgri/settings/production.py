@@ -10,7 +10,7 @@ except ImportError:
     pass
 
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ['CGRI_SECRET_KEY']
 
 ALLOWED_HOSTS = ['*']
 
