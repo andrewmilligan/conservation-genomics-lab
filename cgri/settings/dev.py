@@ -8,6 +8,8 @@ DEBUG = True
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'l57%nf*_nla8cba(w*(b8w#zi&ligkt%!ve_6-e641x$q%uq_6'
 
+# Setup output directory for wagtail-bakery
+BUILD_DIR = os.path.join(BASE_DIR, "build")
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

@@ -151,9 +151,8 @@ WAGTAIL_SITE_NAME = "cgri"
 BASE_URL = 'http://example.com'
 
 
-# Setup for wagtail-bakery
+# Setup for wagtail-bakery (see also dev.py and production.py)
 BAKERY_MULTISITE = False                     # False by default
-BUILD_DIR = os.path.join(BASE_DIR, "build")  # Output directory
 
 BAKERY_VIEWS = (
         # Bake only published pages - for production

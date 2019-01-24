@@ -10,7 +10,10 @@ except ImportError:
     pass
 
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ['WAGTAIL_SECRET_KEY_CGRI']
+
+# Setup output directory for wagtail-bakery
+BUILD_DIR = os.environ['WAGTAIL_DOCUMENT_ROOT_CGRI']
 
 ALLOWED_HOSTS = ['*']
 
