@@ -12,7 +12,7 @@ def cgri_carousel(context):
     This template tag is used to build the home page carousel.
     '''
     page = context['page']
-    projects = ProjectPage.objects.live()
+    projects = ProjectPage.objects.live().filter(promoted=True)
     return {
             'page': page,
             'projects': projects,
@@ -50,5 +50,5 @@ def cgri_current_projects():
     '''
     This template tag is used to build the home page current projects section
     '''
-    projects = ProjectPage.objects.live()
+    projects = ProjectPage.objects.live().filter(promoted=True)
     return {'projects': projects}

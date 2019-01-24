@@ -87,6 +87,10 @@ class PersonPage(ArticlePage):
 #  class allows a large amount of flexibility in content.
 #
 class ProjectPage(ArticlePage):
+  promoted = models.BooleanField(
+      default=False,
+      help_text="Promoted pages are highlighted on the home page"
+      )
   blurb = RichTextField(blank=True)
   image = models.ForeignKey(
       'wagtailimages.Image', on_delete=models.SET_NULL, related_name='+',
@@ -106,6 +110,7 @@ class ProjectPage(ArticlePage):
       ]
 
   content_panels = Page.content_panels + [
+      FieldPanel('promoted'),
       FieldPanel('blurb', classname="full"),
       ImageChooserPanel('image'),
       StreamFieldPanel('body'),
