@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'articles',
+    'freestyle',
 ]
 
 MIDDLEWARE = [

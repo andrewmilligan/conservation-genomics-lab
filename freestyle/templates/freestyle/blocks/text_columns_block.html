@@ -1,0 +1,23 @@
+{% load freestyle_tags %}
+
+<div class="container">
+
+  {% if value.title %}
+  {% cgri_component_title value.title %}
+  {% endif %}
+
+  <div class="row">
+    {% for column in value.columns %}
+    <div class="col-md-4">
+      {% if column.title %}
+      <h3 class="col-title">{{ column.title }}</h3>
+      {% endif %}
+
+      <div class="col-body">
+        {{ column.text }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <hr class="featurette-divider">
+</div>

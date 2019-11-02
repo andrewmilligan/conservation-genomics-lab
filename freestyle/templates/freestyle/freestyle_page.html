@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load cgrihome_tags %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'freestyle/home_page.css' %}">
+<link rel="stylesheet" href="{% static 'freestyle/carousel.css' %}">
+<link rel="stylesheet" href="{% static 'articles/publication_citation.css' %}">
+{% endblock %}
+
+{% block rawcontent %}
+
+{% include_block page.body %}
+
+{% endblock %}

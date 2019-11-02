@@ -1,0 +1,12 @@
+{% load freestyle_tags %}
+
+<div class="container marketing index-row-container-odd">
+
+  {% if value.title %}
+  {% cgri_component_title value.title %}
+  {% endif %}
+
+  {% cgri_current_projects %}
+
+  <hr class="featurette-divider">
+</div>
