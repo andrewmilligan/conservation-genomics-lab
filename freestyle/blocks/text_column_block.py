@@ -8,3 +8,4 @@ class TextColumnBlock(blocks.StructBlock):
     class Meta:
         label = "Text column"
         icon = "pilcrow"
+        template = "freestyle/blocks/text_column_block.html"

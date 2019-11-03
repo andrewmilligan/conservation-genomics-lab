@@ -6,20 +6,16 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 
 from freestyle.blocks import (
   CarouselBlock,
-  ImageLinkColumnsBlock,
-  TextColumnsBlock,
-  RecentPublicationsBlock,
-  CurrentProjectsBlock,
+  ColumnsBlock,
+  PageIndexBlock,
 )
 
 
 class FreestylePage(Page):
   body = StreamField([
     ('carousel', CarouselBlock()),
-    ('image_link_columns', ImageLinkColumnsBlock()),
-    ('text_columns', TextColumnsBlock()),
-    ('recent_publications', RecentPublicationsBlock()),
-    ('current_projects', CurrentProjectsBlock()),
+    ('columns', ColumnsBlock()),
+    ('pages', PageIndexBlock()),
   ])
 
   content_panels = Page.content_panels + [

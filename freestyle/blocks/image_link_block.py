@@ -9,3 +9,4 @@ class ImageLinkBlock(blocks.StructBlock):
     class Meta:
         label = "Image links"
         icon = "image"
+        template = "freestyle/blocks/image_link_column_block.html"

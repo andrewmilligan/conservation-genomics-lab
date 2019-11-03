@@ -8,3 +8,4 @@ from .recent_publications_block import RecentPublicationsBlock # noqa
 from .text_column_block import TextColumnBlock # noqa
 from .text_columns_block import TextColumnsBlock # noqa
 from .page_index_block import PageIndexBlock # noqa
+from .columns_block import ColumnsBlock # noqa

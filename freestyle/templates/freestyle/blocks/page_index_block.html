@@ -1,0 +1,18 @@
+{% load wagtailcore_tags %}
+{% load freestyle_tags %}
+
+
+<div class="container marketing index-row-container-odd">
+
+  {% if value.title %}
+  {% cgri_component_title value.title %}
+  {% endif %}
+
+  {% for page in value.pages %}
+  {% with spec_page=page.specific %}
+  {% include spec_page.index_entry_template with page=spec_page %}
+  {% endwith %}
+  {% endfor %}
+
+  <hr class="featurette-divider">
+</div>
