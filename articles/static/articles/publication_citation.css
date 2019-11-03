@@ -6,9 +6,17 @@
   margin-bottom: 15px;
 }
 
+.cgri-style-dark .citation {
+  color: #ddd;
+}
+
 .citation-title {
   color: #333;
   font-weight: bold;
+}
+
+.cgri-style-dark .citation-title {
+  color: #eee;
 }
 
 

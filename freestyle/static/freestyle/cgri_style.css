@@ -1,0 +1,24 @@
+.cgri-style {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.cgri-style.cgri-style-dark {
+  background-color: #333;
+}
+
+.cgri-style.cgri-style-light .index-row-title {
+  color: #333;
+}
+
+.cgri-style.cgri-style-light .index-row-title::after {
+  background-color: #333;
+}
+
+.cgri-style.cgri-style-dark .index-row-title {
+  color: #fff;
+}
+
+.cgri-style.cgri-style-dark .index-row-title::after {
+  background-color: #fff;
+}
