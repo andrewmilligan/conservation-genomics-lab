@@ -1,0 +1,18 @@
+{% load wagtailimages_tags %}
+
+{% if funders %}
+<div class="container marketing index-row-container-odd">
+  <div class="row featurette index-row funders">
+    {% for funder in primary_funders|slice:":3" %}
+    <div class="col-sm-4">
+      <div class="primary-funder-logo">
+        <a href="{{ funder.link }}" target="_blank">
+          {% image funder.logo width-150 %}
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <hr class="featurette-divider">
+</div>
+{% endif %}

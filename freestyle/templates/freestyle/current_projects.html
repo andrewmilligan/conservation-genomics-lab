@@ -1,0 +1,22 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+
+{% for project in projects|slice:":5" %}
+{% with project=project.specific %}
+<a class="no-change" href="{% pageurl project %}">
+  <div class="row featurette index-row">
+    <div class="col-md-7 index">
+      <h2 class="featurette-heading">{{ project.title }}</h2>
+      <div class="featurette-teaser">
+        {{ project.blurb|richtext }}
+      </div>
+    </div>
+    <div class="col-md-5">
+      {% image project.image fill-1080x900 as project_img %}
+      <img class="featurette-image img-responsive center-block" src="{{ project_img.url }}"/>
+    </div>
+  </div>
+</a>
+{% endwith %}
+{% endfor %}

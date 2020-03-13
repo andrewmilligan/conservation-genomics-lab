@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load cgrihome_tags %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'freestyle/home_page.css' %}">
+<link rel="stylesheet" href="{% static 'freestyle/carousel.css' %}">
+<link rel="stylesheet" href="{% static 'freestyle/cgri_style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'core/article_detail.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'core/article_index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'articles/publication_citation.css' %}">
+{% endblock %}
+
+{% block rawcontent %}
+
+{% include_block page.body %}
+
+{% endblock %}

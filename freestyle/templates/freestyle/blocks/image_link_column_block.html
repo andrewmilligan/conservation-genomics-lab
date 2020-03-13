@@ -1,0 +1,13 @@
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load freestyle_tags %}
+
+<div class="primary-funder-logo">
+  {% if value.url %}
+  <a href="{{ value.url }}" target="_blank">
+  {% endif %}
+    {% image value.image width-150 %}
+  {% if value.url %}
+  </a>
+  {% endif %}
+</div>

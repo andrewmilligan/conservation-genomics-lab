@@ -1,7 +1,7 @@
 /** Page Boxes *******************************************
 **********************************************************/
 .pagebox {
-  background: #fff;
+  background: inherit;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 15px;
@@ -9,7 +9,6 @@
   padding: 15px;
   padding-left: 20px;
   border-left: 8px solid #94adb5;
-  box-shadow: 5px 5px 2px #ddd;
 }
 
 .pagebox, .pagebox:after {
@@ -53,6 +52,10 @@
   transition-duration: 0.25s;
 }
 
+.cgri-style-dark .page-title {
+  color: #eee;
+}
+
 .pagebox-info:hover .page-title {
   color: #94adb5;
   transition-duration: 0.25s;
@@ -61,6 +64,10 @@
 .page-subtitle {
   color: #333;
   margin-bottom: 15px;
+}
+
+.cgri-style-dark .page-title {
+  color: #eee;
 }
 
 .outlet-slug {
@@ -74,6 +81,10 @@
   font-size: 15px;
   font-family: Georgia,serif;
   line-height: 1.70588235294118;
+}
+
+.cgri-style-dark .pagebox-teaser {
+  color: #ddd
 }
 
 .pagebox-teaser .date {

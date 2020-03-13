@@ -1,0 +1,15 @@
+{% load wagtailcore_tags %}
+
+<div class="container marketing index-row-container-odd">
+  {% for pub in publications|slice:":5" %}
+  {% with pub=pub.specific %}
+  <div class="row">
+    <div class="col-sm-12">
+      <a class="no-change" href="{% pageurl pub %}">
+        {% include pub.citation_template with pub=pub %}
+      </a>
+    </div>
+  </div>
+  {% endwith %}
+  {% endfor %}
+</div>
